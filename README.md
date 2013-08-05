@@ -2,7 +2,7 @@ pyVID2JPEG
 ==========
 
 
-Python scripts that converts any video stream into a set of JPEG files.
+Python script that converts any video stream into a set of JPEG files.  
 This script uses OpenCV [1] bindings for python.
 
 Typical usage:
@@ -12,7 +12,7 @@ Typical usage:
 Default output folder is 'output/'
 
 
-One can install OpenCV bindings for python by:
+One can install OpenCV bindings for python by, if opencv is not installed it will ask to install them:
 
         sudo apt-get install python-numpy python-opencv 
 
