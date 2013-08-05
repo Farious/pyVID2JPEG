@@ -20,26 +20,26 @@ def main():
         if o in ("-i", "--input"):
             inputF = str(a)
         if o in ("-o", "--output"):
-            outputF = str(a)
+            outputD = str(a)
 
     if inputF == '':
         usage()
         sys.exit()
 
 # strips video stream
-    stripVideo(inputF, outputF)
+    stripVideo(inputF, outputD)
 
-def stripVideo(iF, oD):
+def stripVideo(inputF, outputD):
 # strips video stream
     try:
-        cap = cv2.VideoCapture(iF)
+        cap = cv2.VideoCapture(inputF)
         if not cap.isOpened():
             print 'Couldn\'t open file, please confirm that it is a video file.'
             raise IOError
     except:
         sys.exit()
 
-    name = iF.split('.')[0].split('/')[-1]
+    name = inputF.split('.')[0].split('/')[-1]
     print 'Video file opened, starting strip of the video.'
     
     imOK, image = cap.read()
@@ -47,7 +47,7 @@ def stripVideo(iF, oD):
     residual = 0
     while imOK:
         img_counter += 1
-        cv2.imwrite(oD + name + '_{0:05d}.jpg'.format(img_counter), image)
+        cv2.imwrite(outputD + name + '_{0:05d}.jpg'.format(img_counter), image)
         
         q, r = divmod(img_counter, 100)
         if r == 0:
